@@ -101,5 +101,5 @@ php artisan serve
 
 ## 👤 Author
 
-Abdeljalil_Salmi
+Abdeljalil Salmi
 Student in Management Information Systems @ ENSA KHOURIBGA MOROCCO
