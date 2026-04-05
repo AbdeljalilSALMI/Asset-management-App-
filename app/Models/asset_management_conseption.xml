@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile modified="2025-08-07T00:00:00.000Z" host="app.diagrams.net">
+  <diagram name="AssetManagementERD">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- USERS -->
+        <mxCell id="u" value="USERS" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="160" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="u1" value="id (PK)" vertex="1" parent="u"><mxGeometry y="20" as="geometry"/></mxCell>
+        <mxCell id="u2" value="name" vertex="1" parent="u"><mxGeometry y="40" as="geometry"/></mxCell>
+        <mxCell id="u3" value="email" vertex="1" parent="u"><mxGeometry y="60" as="geometry"/></mxCell>
+        <mxCell id="u4" value="password" vertex="1" parent="u"><mxGeometry y="80" as="geometry"/></mxCell>
+        <mxCell id="u5" value="role" vertex="1" parent="u"><mxGeometry y="100" as="geometry"/></mxCell>
+
+        <!-- EMPLOYEES -->
+        <mxCell id="e" value="EMPLOYEES" style="rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="20" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="user_id (FK → USERS.id)" vertex="1" parent="e"><mxGeometry y="20" as="geometry"/></mxCell>
+        <mxCell id="e2" value="department" vertex="1" parent="e"><mxGeometry y="40" as="geometry"/></mxCell>
+
+        <!-- TECHNICIANS -->
+        <mxCell id="t" value="TECHNICIANS" style="rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="120" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" value="user_id (FK → USERS.id)" vertex="1" parent="t"><mxGeometry y="20" as="geometry"/></mxCell>
+        <mxCell id="t2" value="speciality" vertex="1" parent="t"><mxGeometry y="40" as="geometry"/></mxCell>
+
+        <!-- SUPPLIERS -->
+        <mxCell id="s" value="SUPPLIERS" style="rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="220" width="160" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="user_id (FK → USERS.id)" vertex="1" parent="s"><mxGeometry y="20" as="geometry"/></mxCell>
+        <mxCell id="s2" value="company_name" vertex="1" parent="s"><mxGeometry y="40" as="geometry"/></mxCell>
+        <mxCell id="s3" value="phone" vertex="1" parent="s"><mxGeometry y="60" as="geometry"/></mxCell>
+
+        <!-- ASSETS -->
+        <mxCell id="a" value="ASSETS" style="rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="240" width="160" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="id (PK)" vertex="1" parent="a"><mxGeometry y="20" as="geometry"/></mxCell>
+        <mxCell id="a2" value="name" vertex="1" parent="a"><mxGeometry y="40" as="geometry"/></mxCell>
+        <mxCell id="a3" value="status" vertex="1" parent="a"><mxGeometry y="60" as="geometry"/></mxCell>
+
+        <!-- ASSET_REPORTS -->
+        <mxCell id="r" value="ASSET_REPORTS" style="rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="360" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="asset_id (FK → ASSETS.id)" vertex="1" parent="r"><mxGeometry y="20" as="geometry"/></mxCell>
+        <mxCell id="r2" value="supplier_id (FK → SUPPLIERS.id)" vertex="1" parent="r"><mxGeometry y="40" as="geometry"/></mxCell>
+        <mxCell id="r3" value="status ['pending', 'accepted', 'rejected']" vertex="1" parent="r"><mxGeometry y="60" as="geometry"/></mxCell>
+
+        <!-- CONNECTORS -->
+        <mxCell id="cu_e" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" parent="1" source="u" target="e">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cu_t" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="u" target="t">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cu_s" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="u" target="s">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ca_r" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="a" target="r">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="cs_r" style="edgeStyle=elbowEdgeStyle;" edge="1" parent="1" source="s" target="r">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
