@@ -70,7 +70,7 @@ php artisan key:generate
 php artisan db:seed
 6.
 php artisan serve
-
+```
 ## 📸 Screenshots
 
 ### Login Page
