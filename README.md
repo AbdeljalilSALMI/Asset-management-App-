@@ -80,7 +80,7 @@ php artisan serve
 ![Registration](screenshots/registration.png)
 
 ### Admin Dashboard
-![Admin Dashboard](screenshots/admin.png)
+![Admin Dashboard](screenshots/Admin.png)
 
 ### Employee View
 ![Employee Dashboard](screenshots/employee.png)
