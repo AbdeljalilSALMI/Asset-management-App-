@@ -45,7 +45,7 @@ public function store(Request $request)
         'role' => 'employee', 
     ]);
 
-    // Create Employee and link user_id
+    
     Employee::create([
         'name' => $request->name,
         'function' => $request->function,
@@ -81,7 +81,7 @@ public function store(Request $request)
     }
     $user->save();
 
-    // update employee
+    
     $employee->update([
         'name' => $request->name,
         'function' => $request->function,
@@ -91,19 +91,18 @@ public function store(Request $request)
     return redirect()->route('employees.index')->with('success', 'Employé mis à jour !');
 }
 
-    // Show assign form
+    
     public function assignForm($id)
     {
         $employee = Employee::findOrFail($id);
-        $assets = Asset::where('status', 'available')->get(); // only available assets
-        // Assets already assigned to this employee (through assignments table)
+        $assets = Asset::where('status', 'available')->get(); 
         $assignedAssets = Assignment::where('employee_id', $employee->id)
                                 ->with('asset') // eager load asset
                                 ->get();
         return view('assign_asset', compact('employee', 'assets','assignedAssets'));
     }
 
-    //  Handle assignment
+    
     public function assignAsset(Request $request, $id)
     {
         $request->validate([
@@ -119,7 +118,7 @@ public function store(Request $request)
         ]);
         
 
-        // assign asset to employee
+        
         $asset->status = 'assigned';
         $asset->save();
 

@@ -11,7 +11,7 @@ class AssetController extends Controller
 {
       public function index()
     {
-        $assets = Asset::with('category')->get(); // Récupère chaque asset avec sa catégorie
+        $assets = Asset::with('category')->get(); 
         return view('assets', compact('assets'));
     }
 
@@ -50,12 +50,12 @@ class AssetController extends Controller
 
         $asset->update($request->all());
 
-         // If status is "maintenance", create maintenance record
+        
     if ($request->status === 'maintenance') {
         Maintenance::create([
             'asset_id' => $asset->id,
             'date' => now(),
-            'technician_id' => $request->technician_id ?? null, // optional
+            'technician_id' => $request->technician_id ?? null, 
             'description' => $request->description ?? 'Maintenance scheduled',
             'cost' => $request->cost ?? 0
         ]);

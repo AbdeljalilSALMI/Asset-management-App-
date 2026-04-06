@@ -11,23 +11,22 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all(); // Récupère toutes les catégories
+        $categories = Category::all();
         return view('categories',compact("categories"));
     }
     public function showAssets($id)
     {
-        $category = Category::with('assets')->findOrFail($id); // Récupère la catégorie avec ses assets
-        $assets = $category->assets; // Récupère les assets de la catégorie
+        $category = Category::with('assets')->findOrFail($id); 
+        $assets = $category->assets; 
         return view('category_assets', compact('category','assets'));
     }
-    // Show the form to create a new category
+    
     public function create()
     {
         return view('create_category');
     }
 
-    // Store a new category in the database
-    public function store(Request $request)
+        public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|unique:categories',
